@@ -38,3 +38,29 @@ $("#cookie").css({
 $("#cookie button").click(function() {
   $("#cookie").remove()
 })
+
+// Task 4
+const $placeHolderImages = $(".row .portfolio-item .card-img-top")
+
+$placeHolderImages.each((index, ele) => {
+  // Just replacing the src with the random link is a
+  // totally valid solution
+  // $image.attr("src", "https://source.unsplash.com/random")
+
+  // But this is how we can deal with Blobs (Binary large objects) in this case a image.
+  $.ajax({
+    type: "GET",
+    url: "https://source.unsplash.com/random",
+    xhr: function() {
+      // Seems like the only way to get access to the xhr object
+      var xhr = new XMLHttpRequest()
+      xhr.responseType = "blob"
+      return xhr
+    },
+    success: function(data) {
+      var img = $(ele)
+      var url = window.URL || window.webkitURL
+      img.attr("src", url.createObjectURL(data))
+    }
+  })
+})
