@@ -7,3 +7,13 @@ $portfolioItems.each((index, element) => {
   const $wrapTarget = $(element).children()
   $wrapTarget.wrap('<a href="' + link + '"> </a>')
 })
+
+// Task 2
+$portfolioItems.mouseenter(function() {
+  $(this).css({ transition: "all .5s" })
+  $(this).css({ transform: "scale(1.05)" })
+})
+
+$portfolioItems.mouseleave(function() {
+  $(this).css({ transform: "scale(1)" })
+})
