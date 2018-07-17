@@ -59,9 +59,9 @@
           return xhr
         },
         success: function(data) {
-          const img = $(ele)
+          const $img = $(ele)
           const url = window.URL || window.webkitURL
-          img.attr("src", url.createObjectURL(data))
+          $img.attr("src", url.createObjectURL(data))
         }
       })
     })
