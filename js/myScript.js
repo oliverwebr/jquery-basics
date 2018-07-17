@@ -47,7 +47,7 @@
     $placeHolderImages.each((index, ele) => {
       // Just replacing the src with the random link is a
       // totally valid solution
-      // $image.attr("src", "https://source.unsplash.com/random")
+      // $(ele).attr("src", "https://source.unsplash.com/random")
 
       // But this is how we can deal with Blobs (Binary large objects) in this case a image.
       $.ajax({
